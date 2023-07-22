@@ -1,0 +1,122 @@
+@charset "UTF-8";
+/*!
+Gutenberg Content Watcher styles
+*/
+.components-button[aria-label="Gutenberg Content Watcher"] {
+  background: #505050;
+  border-radius: 20px;
+}
+
+.gcw-icon {
+  position: relative;
+  margin: 0 !important;
+}
+.gcw-icon::before {
+  transition: all 0.2s ease-in;
+}
+.gcw-icon-status-ok::before {
+  color: #99cc33;
+}
+.gcw-icon-status-warn::before {
+  color: #ffcc00;
+}
+.gcw-icon-status-error::before {
+  color: #ff5c5c;
+}
+.gcw-icon-status-info::before {
+  color: #808080;
+}
+.gcw-panel .incident-wrapper {
+  padding-bottom: 0;
+  background: #fdfff1;
+}
+.gcw-panel .incident-wrapper.status-ok {
+  background: #99cc3317;
+}
+.gcw-panel .incident-wrapper.status-warn {
+  background: #ffcc0017;
+}
+.gcw-panel .incident-wrapper.status-error {
+  background: #ff5c5c17;
+}
+.gcw-panel .incident-wrapper.status-info {
+  background: #80808017;
+}
+.gcw-panel .incident-wrapper.no-children {
+  background: unset;
+}
+.gcw-panel .incident-wrapper.no-children h2 {
+  margin-bottom: 0;
+  pointer-events: none;
+}
+.gcw-panel .incident-wrapper.no-children h2 button span {
+  display: none;
+}
+.gcw-panel .incident-wrapper.no-children + .incident-wrapper {
+  border-top-width: 0;
+}
+.gcw-panel .incident-wrapper h2 {
+  background: white;
+  border-bottom: 1px solid #e0e0e0;
+}
+.gcw-panel .incident-wrapper h2 .components-panel__arrow {
+  right: 0;
+}
+.gcw-panel .incident-wrapper.status-ok h2 button::before {
+  content: "✅";
+  margin-right: 10px;
+}
+.gcw-panel .incident-wrapper.status-warn h2 button::before {
+  content: "⚠️";
+  margin-right: 10px;
+}
+.gcw-panel .incident-wrapper.status-error h2 button::before {
+  content: "🚫";
+  margin-right: 10px;
+}
+.gcw-panel .incident-wrapper.status-info h2 button::before {
+  content: "ℹ️";
+  margin-right: 10px;
+}
+.gcw-panel .incident-wrapper .incident-list {
+  height: auto;
+  margin: 0;
+  padding-bottom: 15px;
+  transition: all 0.2s ease-in;
+  counter-reset: incident;
+}
+.gcw-panel .incident-wrapper .incident-list .incident {
+  display: flex;
+  margin-bottom: 0;
+  font-size: 12px;
+  color: #717171;
+  word-break: break-word;
+  counter-increment: incident;
+}
+.gcw-panel .incident-wrapper .incident-list .incident:not(:last-of-type) {
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #e2e2e2;
+}
+.gcw-panel .incident-wrapper .incident-list .incident::before {
+  content: counter(incident) ".";
+  display: inline;
+  min-width: 20px;
+  margin-right: 6px;
+  color: #525252;
+}
+.gcw-panel .incident-wrapper .incident-list .incident .incident-count {
+  display: inline;
+  margin-left: auto;
+  font-size: 15px;
+  color: #525252;
+  font-weight: bold;
+}
+.gcw-panel .incident-wrapper .incident-list .incident pre {
+  display: inline;
+  padding: 2px;
+  margin: 0 2px;
+  background: #efefef;
+}
+
+/*# sourceMappingURL=style.css.map */

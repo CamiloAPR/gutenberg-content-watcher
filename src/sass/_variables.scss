@@ -1,0 +1,17 @@
+$statuses: (
+  'ok': #99cc33,
+  'warn': #ffcc00,
+  'error': #ff5c5c,
+  'info': #808080
+);
+
+$status-icons: (
+  'ok': '✅',
+  'warn': '⚠️',
+  'error': '🚫',
+  'info': 'ℹ️'
+);
+
+$dark-gray: #989898;
+
+$def-timing: 0.2s;

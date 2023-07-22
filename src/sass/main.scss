@@ -1,0 +1,120 @@
+/*!
+Gutenberg Content Watcher styles
+*/
+
+@import 'variables';
+
+
+.components-button[aria-label="Gutenberg Content Watcher"] {
+  background: #505050;
+  border-radius: 20px;
+}
+.gcw- {
+  &icon {
+    position: relative;
+    margin: 0 !important;
+
+
+    &::before {
+      transition: all $def-timing ease-in;
+    }
+
+    @each $status, $color in $statuses {
+      &-status-#{$status}::before {
+        color: $color;
+      }
+    }
+  }
+
+  &panel {
+    .incident-wrapper {
+      padding-bottom: 0;
+      background: #fdfff1;
+
+      @each $status, $color in $statuses {
+        &.status-#{$status} {
+          background: #{$color}17;
+        }
+      }
+
+      &.no-children {
+        background: unset;
+        h2 {
+          margin-bottom: 0;
+          pointer-events: none;
+
+          button span {
+            display: none;
+          }
+        }
+
+        & + .incident-wrapper {
+          border-top-width: 0;
+        }
+      }
+
+      h2 {
+        background: white;
+        border-bottom: 1px solid #e0e0e0;
+
+        .components-panel__arrow {
+          right: 0;
+        }
+      }
+
+      @each $status, $icon in $status-icons {
+        &.status-#{$status} h2 button::before {
+          content: $icon;
+          margin-right: 10px;
+        }
+      }
+
+      .incident-list {
+        height: auto;
+        margin: 0;
+        padding-bottom: 15px;
+        transition: all $def-timing ease-in;
+        counter-reset: incident;
+
+        .incident {
+          display: flex;
+          margin-bottom: 0;
+          font-size: 12px;
+          color: #717171;
+          word-break: break-word;
+          counter-increment: incident;
+
+          &:not(:last-of-type) {
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e2e2e2;
+          }
+
+          &::before {
+            content: counter(incident) '.';
+            display: inline;
+            min-width: 20px;
+            margin-right: 6px;
+            color: #525252;
+          }
+
+          .incident-count {
+            display: inline;
+            margin-left: auto;
+            font-size: 15px;
+            color: #525252;
+            font-weight: bold;
+          }
+
+          pre {
+            display: inline;
+            padding: 2px;
+            margin: 0 2px;
+            background: #efefef;
+          }
+        }
+      }
+    }
+  }
+
+}
